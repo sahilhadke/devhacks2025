@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { Dashboard, Auth } from "@/layouts";
+import 'leaflet/dist/leaflet.css';
 
 
 function App() {
