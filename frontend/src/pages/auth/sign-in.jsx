@@ -1,9 +1,7 @@
 import {
   Card,
-  Input,
-  Checkbox,
-  Button,
   Typography,
+  CardBody,
 } from "@material-tailwind/react";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
@@ -16,45 +14,49 @@ export function SignIn() {
   const { login } = useContext(AuthContext);
 
   return (
-    <>
-      <section className="m-8 flex gap-4">
-        <div className="w-full lg:w-3/5 mt-24">
+    <div className="relative flex items-start justify-center min-h-screen pt-16"> {/* Added pt-16 for top padding */}
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/img/pattern.png"
+          className="h-full w-full object-cover"
+          alt="background"
+        />
+      </div>
+      
+      {/* Card positioned higher */}
+      <Card className="w-full max-w-md mx-auto z-10 mt-8"> {/* Added mt-8 for additional top margin */}
+        <CardBody className="p-8">
           <div className="text-center">
             <Typography variant="h2" className="font-bold mb-4">Sign In</Typography>
-            <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Enter your email and password to Sign In.</Typography>
+            <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">
+              Enter your email and password to Sign In.
+            </Typography>
           </div>
-          <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
-            <div className="space-y-4 mt-8">
-              <div className="flex justify-center">
-                <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    const { email, name, picture } = jwtDecode(credentialResponse.credential) || {};
-                    const user = {
-                      email,
-                      name,
-                      picture,
-                    };
-                    login(user);
-                    navigate("/dashboard/home");
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
-              </div>
+          
+          <div className="mt-8 mb-2">
+            <div className="flex justify-center">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  const { email, name, picture } = jwtDecode(credentialResponse.credential) || {};
+                  const user = {
+                    email,
+                    name,
+                    picture,
+                  };
+                  login(user);
+                  navigate("/dashboard/home");
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
             </div>
-          </form>
-        </div>
-        <div className="w-2/5 h-full hidden lg:block">
-          <img
-            src="/img/pattern.png"
-            className="h-full w-full object-cover rounded-3xl"
-          />
-        </div>
-      </section>
-    </>
+          </div>
+        </CardBody>
+      </Card>
+    </div>
   );
 }
 
 export default SignIn;
-

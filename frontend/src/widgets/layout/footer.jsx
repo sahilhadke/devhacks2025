@@ -44,10 +44,10 @@ Footer.defaultProps = {
   brandName: "A3S",
   brandLink: "https://hadke.in/",
   routes: [
-    { name: "Creative Tim", path: "https://www.creative-tim.com" },
-    { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-    { name: "Blog", path: "https://www.creative-tim.com/blog" },
-    { name: "License", path: "https://www.creative-tim.com/license" },
+    { name: "A3S", path: "https://aakashgangji.github.io" },
+    { name: "About Us", path: "https://aakashgangji.github.io" },
+    { name: "Blog", path: "https://aakashgangji.github.io" },
+    { name: "License", path: "https://aakashgangji.github.io" },
   ],
 };
 
