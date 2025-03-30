@@ -65,17 +65,16 @@ export function Profile() {
                 className="rounded-lg shadow-lg shadow-blue-gray-500/40"
               />
               <div>
-                <Typography variant="h5" color="blue-gray" className="mb-1">
+                <Typography variant="h5" color="blue-gray" className="">
                   {user?.name}
                 </Typography>
               </div>
             </div>
           </div>
-          <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-1">
+          <div className="gird-cols-1 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-1">
            
             <ProfileInfoCard
-              title="Profile Information"
-              description="Hi, I'm Aakash Gangji, Thoda Karlo Mujhse Pyaar is now streaming on all the platforms."
+              description="I love to workout and meet new people on the go!"
               details={{
                 "major": "MS in Computer Science",
                 "gender": "Male",
@@ -108,8 +107,8 @@ export function Profile() {
                   <Card key={title} color="transparent" shadow={false}>
                     <CardHeader
                       floated={false}
-                      color="gray"
-                      className="mx-0 mt-0 mb-4 h-64 xl:h-40"
+                      color="blue"
+                      className="mx-0 mt-0 mb-4"
                     >
                       <img
                         src={img}
@@ -122,13 +121,13 @@ export function Profile() {
                       <Typography
                         variant="h5"
                         color="blue-gray"
-                        className="mt-1 mb-2"
+                        className="mt-1 mb-2 text-center"
                       >
                         {title}
                       </Typography>
                       <Typography
                         variant="small"
-                        className="font-normal text-blue-gray-500"
+                        className="font-normal text-center text-blue-gray-500"
                       >
                         {description}
                       </Typography>

@@ -40,7 +40,7 @@ export function SignUp() {
             label={
               <Typography
                 variant="small"
-                color="gray"
+                color="blue"
                 className="flex items-center justify-start font-medium"
               >
                 I agree the&nbsp;

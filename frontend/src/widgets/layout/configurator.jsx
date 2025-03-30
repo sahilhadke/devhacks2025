@@ -109,7 +109,7 @@ export function Configurator() {
           <Typography variant="h6" color="blue-gray">
             Sidenav Types
           </Typography>
-          <Typography variant="small" color="gray">
+          <Typography variant="small" color="blue">
             Choose between 3 different sidenav types.
           </Typography>
           <div className="mt-3 flex items-center gap-2">

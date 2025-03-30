@@ -1,22 +1,22 @@
 export const projectsData = [
   {
     img: "/img/1star.png",
-    title: "Getting There",
+    title: "Bronze Walker – 'Getting There'",
     description:
-      "As Uber works through a huge amount of internal management turmoil.",
+      "Awarded to those who have walked with 5 different people. A great start to building connections and becoming part of the WalkWithMe community.",
     route: "/dashboard/profile"
   },
   {
     img: "/img/2star.png",
-    title: "Almoster",
+    title: "Silver Walker – 'Flexer'",
     description:
-      "Music is something that every person has his or her own specific opinion about.",
+      "Earned after walking with 15 people. A recognized walker who is trusted and actively engaging with others on their journeys.",
   },
   {
     img: "/img/3star.png",
-    title: "Flexer",
+    title: "Gold Walker – 'Main Character'",
     description:
-      "Different people have different taste, and various types of music.",
+      " Achieved by walking with 30 or more people. A true leader in the WalkWithMe community, known for making connections and bringing people together.",
   }
 ];
 

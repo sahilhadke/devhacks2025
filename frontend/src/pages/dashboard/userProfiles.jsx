@@ -127,7 +127,7 @@ export function UserProfiles() {
                   <Card key={title} color="transparent" shadow={false}>
                     <CardHeader
                       floated={false}
-                      color="gray"
+                      color="blue"
                       className="mx-0 mt-0 mb-4"
                     >
                       <img

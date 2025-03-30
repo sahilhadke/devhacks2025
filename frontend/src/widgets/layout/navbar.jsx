@@ -47,8 +47,8 @@ export function Navbar({ brandName, routes, action }) {
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link to="/">
           <Typography
-            variant="small"
-            className="mr-4 ml-2 cursor-pointer py-1.5 font-bold"
+            variant="h6"
+            className="mr-4 h6 ml-2 cursor-pointer py-1.5 font-bold"
           >
             {brandName}
           </Typography>

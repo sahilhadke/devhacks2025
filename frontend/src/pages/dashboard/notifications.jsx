@@ -6,6 +6,7 @@ import {
   Button,
   CardBody,
   Link,
+  Alert,
 } from "@material-tailwind/react";
 import { InformationCircleIcon, CheckIcon, BeakerIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
@@ -13,16 +14,16 @@ import { useNavigate } from "react-router-dom";
 
 export function Notifications() {
   const [showAlerts, setShowAlerts] = React.useState({
-    blue: true,
-    green: true,
-    orange: true,
-    red: true,
+    blue: false,
+    green: false,
+    orange: false,
+    red: false,
   });
   const [showAlertsWithIcon, setShowAlertsWithIcon] = React.useState({
-    blue: true,
-    green: true,
-    orange: true,
-    red: true,
+    blue: false,
+    green: false,
+    orange: false,
+    red: false,
   });
   const alerts = ["gray", "green", "orange", "red"];
 
@@ -50,8 +51,54 @@ export function Notifications() {
     user.destination.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleAccept = (id) => {
+    setSuggestedUsers(suggestedUsers.filter((user) => user.id !== id));
+    setShowAlerts((prev) => ({
+      ...prev,
+      green: true,
+    }));
+    setTimeout(() => {
+      setShowAlerts((prev) => ({
+        ...prev,
+        green: false,
+      }));
+    }, 3000);
+  };
+
+  const handleDecline = (id) => {
+    setSuggestedUsers(suggestedUsers.filter((user) => user.id !== id));
+    setShowAlerts((prev) => ({
+      ...prev,
+      red: true,
+    }));
+    setTimeout(() => {
+      setShowAlerts((prev) => ({
+        ...prev,
+        red: false,
+      }));
+    }, 3000);
+  };
+
   return (
     <div className="mx-auto my-20 flex flex-col gap-8">
+      {showAlerts.green && (
+        <Alert
+          color="green"
+          className="mb-4"
+          onClose={() => setShowAlerts((prev) => ({ ...prev, green: false }))}
+        >
+          <Typography variant="small">User accepted!</Typography>
+        </Alert>
+      )}
+      {showAlerts.red && (
+        <Alert
+          color="red"
+          className="mb-4"
+          onClose={() => setShowAlerts((prev) => ({ ...prev, red: false }))}
+        >
+          <Typography variant="small">User declined!</Typography>
+        </Alert>
+      )}
       <Card>
         <CardHeader
           color="transparent"
@@ -124,6 +171,7 @@ export function Notifications() {
                               variant="contained"
                               color="green"
                               className="px-4 py-2"
+                              onClick={() => handleAccept(id)}
                             >
                               Accept
                             </Button>
@@ -131,8 +179,9 @@ export function Notifications() {
                               variant="contained"
                               color="red"
                               className="px-4 py-2"
+                              onClick={() => handleDecline(id)}
                             >
-                              Reject
+                              Decline
                             </Button>
                             <Button
                               variant="contained"

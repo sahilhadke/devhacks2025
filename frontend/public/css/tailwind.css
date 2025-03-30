@@ -16,5 +16,9 @@
     height: 100%;
     width: 100%;
     min-height: 500px;
-    background-color: #e0e0e0;
+    background-color: #FAF3E0;
   }
+
+.primary-color-blue{
+  background-color: #1E3A8A !important
+}

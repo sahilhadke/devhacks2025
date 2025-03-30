@@ -32,32 +32,26 @@ import {
   authorsTableData
 } from "@/data";
 import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
-
   const [userSuggestions, setUserSuggestions] = React.useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [formErrors, setFormErrors] = useState({});
-
   const [startPosition, setStartPosition] = useState("");
   const [destination, setDestination] = useState("");
   const [time, setTime] = useState("");
-  const [date, setDate] = useState("");
-
   const startInputRef = useRef(null);
   const destinationInputRef = useRef(null);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
-    // read JSON file and store in userSuggestions
     fetch("../../public/userSuggestions.json")
       .then((response) => response.json())
       .then((data) => {
         setUserSuggestions(data["Sheet1"]);
       });
 
-    console.log("userSuggestions", userSuggestions);
-
-    // Load Google Places Autocomplete for Start Point
     if (window.google) {
       const startAutocomplete = new window.google.maps.places.Autocomplete(
         startInputRef.current,
@@ -68,7 +62,6 @@ export function Home() {
         setStartPosition(place.formatted_address || "");
       });
 
-      // Load Google Places Autocomplete for Destination
       const destinationAutocomplete = new window.google.maps.places.Autocomplete(
         destinationInputRef.current,
         { types: ["geocode"] }
@@ -91,9 +84,6 @@ export function Home() {
     if (!formData.get("time")) {
       errors.time = "Time is required";
     }
-    if (!formData.get("date")) {
-      errors.date = "Date is required";
-    }
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -106,23 +96,25 @@ export function Home() {
       const start = formData.get("start");
       const destination = formData.get("destination");
       const time = formData.get("time");
-      const date = formData.get("date");
-      console.log("Start:", start);
-      console.log("Destination:", destination);
-      console.log("Time:", time);
-      console.log("Date:", date);
       setStartPosition(start);
       setDestination(destination);
       setTime(time);
-      setDate(date);
-
       setShowSuggestions(true);
     }
   };
 
+  const handleUserClick = (id) => {
+    navigate(`/dashboard/user-profiles?id=${id}`);
+  };
+
+  const handleAddFriend = (id) => {
+    setUserSuggestions(prevSuggestions =>
+      prevSuggestions.filter(user => user.id !== id)
+    );
+  };
+
   return (
     <div className="flex max-w-screen-lg flex-col ">
-
       <div className="mt-12">
         <Card >
           <CardHeader variant="gradient" color="gray" className=" p-6">
@@ -132,7 +124,7 @@ export function Home() {
           </CardHeader>
           <CardBody>
             <form
-              className="grid grid-cols-1 gap-4 md:grid-cols-2"
+              className="grid grid-cols-1 gap-4 md:grid-cols-3"
               onSubmit={handleSubmit}
             >
               <div className="flex flex-col gap-2">
@@ -181,21 +173,8 @@ export function Home() {
                   </Typography>
                 )}
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="date">Date</label>
-                <Input
-                  type="date"
-                  id="date"
-                  name="date"
-                  className={formErrors.date ? "border-red-500" : ""}
-                />
-                {formErrors.date && (
-                  <Typography className="text-xs text-red-500">
-                    {formErrors.date}
-                  </Typography>
-                )}
-              </div>
-              <div className="md:col-span-2">
+              
+              <div className="md:col-span-3">
                 <Button type="submit" variant="gradient" fullWidth>
                   Submit
                 </Button>
@@ -208,7 +187,7 @@ export function Home() {
       {showSuggestions && (
         <div className="mt-12" id="suggested-people">
           <Card>
-            <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+            <CardHeader variant="gradient" color="primary" className="mb-8 p-6 primary-color-blue">
               <Typography variant="h6" color="white">
                 Suggested People to walk with
               </Typography>
@@ -242,7 +221,11 @@ export function Home() {
                       }`;
 
                       return (
-                        <tr key={id}>
+                        <tr
+                          key={id}
+                          className="cursor-pointer hover:bg-gray-100"
+                          onClick={() => handleUserClick(id)}
+                        >
                           <td className={className}>
                             <div className="flex items-center gap-4">
                               <Avatar src={"https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"} alt={id} size="sm" variant="rounded" />
@@ -284,7 +267,19 @@ export function Home() {
                               {introduced}
                             </Typography>
                           </td>
-
+                          <td className={className}>
+                            <Button
+                              variant="text"
+                              size="sm"
+                              color="green"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddFriend(id);
+                              }}
+                            >
+                              Add Friend
+                            </Button>
+                          </td>
                         </tr>
                       );
                     }
@@ -295,7 +290,6 @@ export function Home() {
           </Card>
         </div>
       )}
-                    
     </div>
   );
 }

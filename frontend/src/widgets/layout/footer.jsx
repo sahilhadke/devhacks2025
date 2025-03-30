@@ -18,7 +18,7 @@ export function Footer({ brandName, brandLink, routes }) {
           >
             {brandName}
           </a>{" "}
-          for a better web.
+          to tackle lonliness
         </Typography>
         <ul className="flex items-center gap-4">
           {routes.map(({ name, path }) => (
@@ -41,8 +41,8 @@ export function Footer({ brandName, brandLink, routes }) {
 }
 
 Footer.defaultProps = {
-  brandName: "Creative Tim",
-  brandLink: "https://www.creative-tim.com",
+  brandName: "A3S",
+  brandLink: "https://hadke.in/",
   routes: [
     { name: "Creative Tim", path: "https://www.creative-tim.com" },
     { name: "About Us", path: "https://www.creative-tim.com/presentation" },
