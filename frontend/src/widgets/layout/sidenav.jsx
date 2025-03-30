@@ -60,7 +60,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
               </li>
             )}
             {pages
-              .filter((page) => page.name !== "Sign In")
+              .filter((page) => page.name !== "Sign In" || page.name !== "User Profiles")
               .map(({ icon, name, path }) => (
                 <li key={name}>
                   <NavLink to={`/${layout}${path}`}>

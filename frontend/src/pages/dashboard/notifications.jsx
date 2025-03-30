@@ -27,6 +27,7 @@ export function Notifications() {
   const alerts = ["gray", "green", "orange", "red"];
 
   const [suggestedUsers, setSuggestedUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +44,12 @@ export function Notifications() {
     navigate(`/dashboard/user-profiles?id=${id}`);
   };
 
+  const filteredUsers = suggestedUsers.filter((user) =>
+    user.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.starting_pos.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.destination.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="mx-auto my-20 flex flex-col gap-8">
       <Card>
@@ -55,15 +62,22 @@ export function Notifications() {
           <Typography variant="h5" color="blue-gray">
             Connections
           </Typography>
+          {/* <input
+            type="text"
+            placeholder="Search user profiles..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="mt-4 w-full rounded border border-gray-300 p-2"
+          /> */}
         </CardHeader>
         <CardBody className="px-4 pb-4">
           <div className="overflow-x-auto">
             <table className="w-full table-auto text-left">
               <tbody>
-                {suggestedUsers.slice(0, 5).map(
+                {filteredUsers.slice(0, 5).map(
                   ({ id, starting_pos, destination, arrive_by, rating, referred, introduced }, key) => {
                     const className = `py-3 px-5 ${
-                      key === suggestedUsers.length - 1 ? "" : "border-b border-blue-gray-50"
+                      key === filteredUsers.length - 1 ? "" : "border-b border-blue-gray-50"
                     }`;
 
                     return (
@@ -104,7 +118,6 @@ export function Notifications() {
                             {arrive_by}
                           </Typography>
                         </td>
-                        
                         <td className={className}>
                           <div className="flex items-center gap-4">
                             <Button
