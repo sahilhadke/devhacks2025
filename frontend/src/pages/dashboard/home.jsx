@@ -46,7 +46,7 @@ export function Home() {
                 </CardHeader>
                 <CardBody>
                   <form
-                    className="flex flex-col gap-4"
+                    className="grid grid-cols-1 gap-4 md:grid-cols-2"
                     onSubmit={(e) => {
                       e.preventDefault();
                       const formData = new FormData(e.currentTarget);
@@ -83,9 +83,11 @@ export function Home() {
                       <label htmlFor="date">Date</label>
                       <Input type="date" id="date" name="date" />
                     </div>
-                    <Button type="submit" variant="gradient" fullWidth>
-                      Submit
-                    </Button>
+                    <div className="md:col-span-2">
+                      <Button type="submit" variant="gradient" fullWidth>
+                        Submit
+                      </Button>
+                    </div>
                   </form>
                 </CardBody>
 </Card>

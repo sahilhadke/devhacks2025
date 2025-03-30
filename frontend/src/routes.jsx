@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
+import SignOut from "./pages/auth/sign-out";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -19,7 +20,7 @@ export const routes = [
     pages: [
       {
         icon: <HomeIcon {...icon} />,
-        name: "dashboard",
+        name: "Home",
         path: "/home",
         element: <Home />,
       },
@@ -28,12 +29,6 @@ export const routes = [
         name: "profile",
         path: "/profile",
         element: <Profile />,
-      },
-      {
-        icon: <TableCellsIcon {...icon} />,
-        name: "tables",
-        path: "/tables",
-        element: <Tables />,
       },
       {
         icon: <InformationCircleIcon {...icon} />,
@@ -47,18 +42,21 @@ export const routes = [
     title: "auth pages",
     layout: "auth",
     pages: [
+
+
+     
       {
-        icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
-        path: "/sign-in",
-        element: <SignIn />,
+        icon: <RectangleStackIcon {...icon} />,
+        name: "Sign Out",
+        path: "/sign-out",
+        element: <SignOut />,
       },
       {
         icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
-      },
+        name: "Sign In",
+        path: "/sign-in",
+        element: <SignIn />,
+      }
     ],
   },
 ];

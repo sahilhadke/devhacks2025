@@ -34,7 +34,6 @@ export function SignIn() {
                       name,
                       picture,
                     };
-                    console.log(user);
                     login(user);
                     navigate("/dashboard/home");
                   }}
