@@ -25,12 +25,20 @@ import {
   setOpenConfigurator,
   setOpenSidenav,
 } from "@/context";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 export function DashboardNavbar() {
   const [controller, dispatch] = useMaterialTailwindController();
   const { fixedNavbar, openSidenav } = controller;
   const { pathname } = useLocation();
   const [layout, page] = pathname.split("/").filter((el) => el !== "");
+
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <Navbar
@@ -72,9 +80,9 @@ export function DashboardNavbar() {
           </Typography>
         </div>
         <div className="flex items-center">
-          <div className="mr-auto md:mr-4 md:w-56">
+          {/* <div className="mr-auto md:mr-4 md:w-56">
             <Input label="Search" />
-          </div>
+          </div> */}
           <IconButton
             variant="text"
             color="blue-gray"
@@ -83,24 +91,22 @@ export function DashboardNavbar() {
           >
             <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
           </IconButton>
-          <Link to="/auth/sign-in">
-            <Button
-              variant="text"
-              color="blue-gray"
-              className="hidden items-center gap-1 px-4 xl:flex normal-case"
-            >
-              <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
-              Sign In
-            </Button>
-            <IconButton
-              variant="text"
-              color="blue-gray"
-              className="grid xl:hidden"
-            >
-              <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
-            </IconButton>
-          </Link>
-          <Menu>
+          {/* <Button
+            variant="text"
+            color="blue-gray"
+            className="hidden items-center gap-1 px-4 xl:flex normal-case"
+            onClick={handleLogout}
+          >
+            Log out
+          </Button> */}
+          {/* <IconButton
+            variant="text"
+            color="blue-gray"
+            className="grid xl:hidden"
+          >
+            <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
+          </IconButton> */}
+          {/* <Menu>
             <MenuHandler>
               <IconButton variant="text" color="blue-gray">
                 <BellIcon className="h-5 w-5 text-blue-gray-500" />
@@ -184,7 +190,7 @@ export function DashboardNavbar() {
             onClick={() => setOpenConfigurator(dispatch, true)}
           >
             <Cog6ToothIcon className="h-5 w-5 text-blue-gray-500" />
-          </IconButton>
+          </IconButton> */}
         </div>
       </div>
     </Navbar>
@@ -194,3 +200,4 @@ export function DashboardNavbar() {
 DashboardNavbar.displayName = "/src/widgets/layout/dashboard-navbar.jsx";
 
 export default DashboardNavbar;
+
