@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 
 
 
-export function Profile() {
+export function UserProfiles() {
 
 
   const [user, setUser] = useState(
@@ -146,4 +146,4 @@ export function Profile() {
   );
 }
 
-export default Profile;
+export default UserProfiles;
