@@ -6,21 +6,10 @@
       "starting_pos": "The Access",
       "destination": "Hayden Library",
       "arrive_by": "3:00 PM",
-      "major": "MS in Computer Science",
       "rating": "4.5",
       "referred": "Matt (4), Damen(5), Lilly(3.5)",
-      "introduced": "Damen(4)",
-      "interests": "Reading, Hiking",
-      "ethnicity": "Asian",
-      "gender": "Female",
-      "country": "USA",
-      "instagram_link": "instagram.com/user1",
-      "snapchat_link": "snapchat.com/user1",
-      "twitter_link": "twitter.com/user1",
-      "languages": "English, Mandarin",
-      "biography": "Avid reader and outdoor enthusiast. I enjoy hiking scenic trails and discovering new books.",
-      "profile_picture": "https://randomuser.me/api/portraits/men/27.jpg",
-      "achievements": [0, 1, 2]
+      "introduced": "Damen(4)"
+
     },
     {
       "profile_url": "/user2",
@@ -30,61 +19,32 @@
       "arrive_by": "3:00 PM",
       "rating": "4",
       "referred": "Krishna(4), Jyoti(4)",
-      "introduced": "Omkar(4.3)",
-      "interests": "Photography, Cooking",
-      "ethnicity": "Indian",
-      "gender": "Male",
-      "country": "India",
-      "instagram_link": "instagram.com/user2",
-      "snapchat_link": "snapchat.com/user2",
-      "twitter_link": "twitter.com/user2",
-      "languages": "English, Hindi",
-      "biography": "Passionate about capturing beautiful moments through photography and exploring diverse cuisines.",
-      "profile_picture": "https://randomuser.me/api/portraits/men/21.jpg",
-
-      "achievements": [0, 1]
+      "introduced": "omkar(4.3)"
     },
     {
+
       "profile_url": "/user3",
       "id": "User 3",
       "starting_pos": "San Marbeya",
       "destination": "Memorial Union",
-      "arrive_by": "3:15 PM",
+      "arrive_by": "3:15PM",
       "rating": "3",
       "referred": "None",
-      "introduced": "Tiya(5)",
-      "interests": "Gaming, Painting",
-      "ethnicity": "Hispanic",
-      "gender": "Female",
-      "country": "Mexico",
-      "instagram_link": "instagram.com/user3",
-      "snapchat_link": "snapchat.com/user3",
-      "twitter_link": "twitter.com/user3",
-      "languages": "English, Spanish",
-      "biography": "Gamer and creative spirit. I spend my free time painting and exploring virtual worlds.",
-      "profile_picture": "https://randomuser.me/api/portraits/men/21.jpg"
+      "introduced": "Tiya(5)"
     },
     {
+
       "profile_url": "/user4",
       "id": "User 4",
       "starting_pos": "Desert Palm Village",
-      "destination": "Student Pavilion",
+      "destination": "Student Pavillian",
       "arrive_by": "3:30 PM",
       "rating": "2.5",
       "referred": "Paul(1)",
-      "introduced": "Garen(3.5)",
-      "interests": "Traveling, Photography",
-      "ethnicity": "Caucasian",
-      "gender": "Male",
-      "country": "Canada",
-      "instagram_link": "instagram.com/user4",
-      "snapchat_link": "snapchat.com/user4",
-      "twitter_link": "twitter.com/user4",
-      "languages": "English, French",
-      "biography": "I love to travel and explore new places. I am a photographer by passion.",
-      "profile_picture": "https://randomuser.me/api/portraits/women/27.jpg"
+      "introduced": "Garen(3.5)"
     },
     {
+
       "profile_url": "/user5",
       "id": "User 5",
       "starting_pos": "Hyve Apartments",
@@ -92,18 +52,52 @@
       "arrive_by": "3:00 PM",
       "rating": "null",
       "referred": "None",
-      "introduced": "Ryan(3)",
-      "interests": "Sports, Fitness",
-      "ethnicity": "African American",
-      "gender": "Male",
-      "country": "USA",
-      "instagram_link": "instagram.com/user5",
-      "snapchat_link": "snapchat.com/user5",
-      "twitter_link": "twitter.com/user5",
-      "languages": "English",
-      "biography": "I am a fitness enthusiast and love to play sports.",
-      "profile_picture": "https://randomuser.me/api/portraits/women/1.jpg"
+      "introduced": "Ryan(3)"
+    },
+    {
+      "profile_url": "/user6",
+      "id": "User 6",
+      "starting_pos": "Skye At MacClintock Station",
+      "destination": "Neeb Hall",
+      "rating": "5",
+      "referred": "Kia(4.5), Kriva(4.3), Shloka(3.5)",
+      "introduced": "Lakshya(5)"
+    },
+    {
+      "profile_url": "/user7",
+      "id": "User 7",
+      "starting_pos": "Canvas ",
+      "destination": "Noble Library",
+      "rating": "4",
+      "referred": "Eva(3), Riva(4.5), Kashish(4)",
+      "introduced": "Vish(4.8)"
+    },
+    {
+      "profile_url": "/user8",
+      "id": "User 8",
+      "starting_pos": "Olive Apartments",
+      "destination": "Social Science Building",
+      "rating": "4.5",
+      "referred": "Krishiv(4.5), Ayan(3.5)",
+      "introduced": "Mac(4)"
+    },
+    {
+      "profile_url": "/user9",
+      "id": "User 9",
+      "starting_pos": "Broadstone",
+      "destination": "Wilson Hall",
+      "rating": "5",
+      "referred": "Selena(4), Katie(5)",
+      "introduced": "Jack(4.5)"
+    },
+    {
+      "profile_url": "/user10",
+      "id": "User 10",
+      "starting_pos": "Fredrick Apartments",
+      "destination": "Coor Hall",
+      "rating": "4",
+      "referred": "Ariv(3.5)",
+      "introduced": "Yasmin(3.4)"
     }
   ]
 }
-

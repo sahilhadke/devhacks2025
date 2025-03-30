@@ -16,21 +16,21 @@ export function SignIn() {
   return (
     <div className="relative flex items-start justify-center min-h-screen pt-16"> {/* Added pt-16 for top padding */}
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 text-center" style={{backgroundColor: '#f1efe7'}}>
         <img
-          src="/img/pattern.png"
-          className="h-full w-full object-cover"
+          src="/img/white-bg2.png"
+          className="centered m-auto"
           alt="background"
         />
       </div>
       
       {/* Card positioned higher */}
-      <Card className="w-full max-w-md mx-auto z-10 mt-8"> {/* Added mt-8 for additional top margin */}
+      <Card className="w-full max-w-md mx-auto z-10 mt-4"> {/* Added mt-8 for additional top margin */}
         <CardBody className="p-8">
           <div className="text-center">
-            <Typography variant="h2" className="font-bold mb-4">Sign In</Typography>
+            <Typography variant="h2" className="font-bold mb-4">Step In!</Typography>
             <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">
-              Enter your email and password to Sign In.
+            Tackle loneliness and make every walk a little better.
             </Typography>
           </div>
           

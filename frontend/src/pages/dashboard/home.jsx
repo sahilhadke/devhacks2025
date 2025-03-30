@@ -46,7 +46,7 @@ export function Home() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    fetch("../../public/userSuggestions.json")
+    fetch("../../public/userSuggestions2.json")
       .then((response) => response.json())
       .then((data) => {
         setUserSuggestions(data["Sheet1"]);

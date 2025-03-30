@@ -44,10 +44,6 @@ Footer.defaultProps = {
   brandName: "A3S",
   brandLink: "https://hadke.in/",
   routes: [
-    { name: "A3S", path: "https://aakashgangji.github.io" },
-    { name: "About Us", path: "https://aakashgangji.github.io" },
-    { name: "Blog", path: "https://aakashgangji.github.io" },
-    { name: "License", path: "https://aakashgangji.github.io" },
   ],
 };
 
