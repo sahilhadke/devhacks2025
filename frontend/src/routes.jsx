@@ -9,6 +9,7 @@ import {
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import SignOut from "./pages/auth/sign-out";
+import UserProfiles from "./pages/dashboard/userProfiles";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -36,6 +37,12 @@ export const routes = [
         path: "/notifications",
         element: <Notifications />,
       },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "user profiles",
+        path: "/user-profiles",
+        element: <UserProfiles />,
+      }
     ],
   },
   {

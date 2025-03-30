@@ -32,6 +32,8 @@ export function UserProfiles() {
     JSON.parse(localStorage.getItem("user"))
   );
 
+  const [userToShow, setUserToShow] = useState(null);
+
   const [userSuggestions, setUserSuggestions] = useState([]);
   useEffect(() => {
     // print the user from local storage
@@ -41,6 +43,21 @@ export function UserProfiles() {
     }
     // console.log("User data:", user);
     console.log("User data:", user);
+
+
+    // fetch suggested users from the json file
+    // find the user which has id same as the id in the url
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    fetch("../../public/userSuggestions.json")
+
+      .then((response) => response.json())
+      .then((data) => {
+        setUserSuggestions(data["Sheet1"]);
+        const user = data["Sheet1"].find((user) => user.id === id);
+        setUserToShow(user);
+        console.log("User to show:", user);
+      }); 
 
 
 
@@ -56,18 +73,21 @@ export function UserProfiles() {
       </div>
       <Card className="mx-3 -mt-16 mb-6 lg:mx-4 border border-blue-gray-100">
         <CardBody className="p-4">
-          <div className="mb-10 flex items-center justify-between flex-wrap gap-6">
+          <div className="flex items-center justify-between flex-wrap gap-6">
             <div className="flex items-center gap-6">
               <Avatar
-                src={user?.picture}
-                alt={user?.name}
+                // src={userToShow?.profile_picture}
+                src={
+                  "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                }
+                alt={userToShow?.name}
                 size="xl"
                 variant="rounded"
                 className="rounded-lg shadow-lg shadow-blue-gray-500/40"
               />
               <div>
                 <Typography variant="h5" color="blue-gray" className="mb-1">
-                  {user?.name}
+                  {userToShow?.id}
                 </Typography>
               </div>
             </div>
@@ -75,14 +95,13 @@ export function UserProfiles() {
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-1">
            
             <ProfileInfoCard
-              title="Profile Information"
-              description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
+              description={userToShow?.biography}
               details={{
-                "major": "MS in Computer Science",
-                "gender": "Male",
-                "Ethicity": "Asian (Indian)",
-                "Interests": "Reading, Traveling, Coding",
-                "Languages": "English, Hindi",
+                major: userToShow?.major ? userToShow.major.replace(",", " / ") : "N/A",
+                gender: userToShow?.gender || "N/A",
+                ethnicity: userToShow?.ethnicity || "N/A",
+                interests: userToShow?.interests || "N/A",
+                languages: userToShow?.languages || "N/A",
                 social: (
                   <div className="flex items-center gap-4">
                     <i className="fa-brands fa-facebook text-blue-700" />
@@ -110,12 +129,12 @@ export function UserProfiles() {
                     <CardHeader
                       floated={false}
                       color="gray"
-                      className="mx-0 mt-0 mb-4 h-64 xl:h-40"
+                      className="mx-0 mt-0 mb-4"
                     >
                       <img
                         src={img}
                         alt={title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full"
                       />
                     </CardHeader>
                     <CardBody className="py-0 px-1">
