@@ -18,7 +18,13 @@ import { MaterialTailwindControllerProvider } from "@/context";
 import { AuthProvider } from "@/context/AuthContext";
 import "../public/css/tailwind.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-
+import 'leaflet/dist/leaflet.css';
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png'
+});
 const CLIENT_ID = "552300650407-jsim74u3pblnitnqhmcad1cfsppo27k6.apps.googleusercontent.com";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

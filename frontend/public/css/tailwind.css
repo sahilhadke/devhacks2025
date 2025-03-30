@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .walking-buddy-map-container {
+    @apply h-screen w-full;
+  }
+  
+  .map-wrapper {
+    @apply h-[calc(100%-120px)];
+  }
+}
+/* Ensure the map container has proper dimensions */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    min-height: 500px;
+    background-color: #e0e0e0;
+  }

@@ -51,8 +51,7 @@ export function Profile() {
   
   return (
     <>
-      <div className={"relative mt-8 h-72 w-full overflow-hidden rounded-xl bg-[url('/img/background-image.png')] bg-cover	bg-center"}>
-        <div className="absolute inset-0 h-full w-full bg-gray-900/75" />
+      <div className={"relative mt-8 h-72 w-full overflow-hidden rounded-xl bg-[url('/img/background-image.png')] bg-cover bg-center"}>
       </div>
       <Card className="mx-3 -mt-16 mb-6 lg:mx-4 border border-blue-gray-100">
         <CardBody className="p-4">
@@ -76,7 +75,7 @@ export function Profile() {
            
             <ProfileInfoCard
               title="Profile Information"
-              description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
+              description="Hi, I'm Aakash Gangji, Thoda Karlo Mujhse Pyaar is now streaming on all the platforms."
               details={{
                 "major": "MS in Computer Science",
                 "gender": "Male",
